@@ -25,6 +25,7 @@ export const tasks = pgTable("tasks", {
   route: text("route").notNull(),
   difficulty: text("difficulty").notNull(),
   order: integer("order").notNull().default(0),
+  flowchartData: text("flowchart_data"),
 });
 
 export const insertTaskSchema = createInsertSchema(tasks).omit({
@@ -39,6 +40,7 @@ export const updateTaskSchema = z.object({
   route: z.string().min(1).optional(),
   difficulty: z.enum(["Básico", "Intermediário", "Avançado"]).optional(),
   order: z.number().int().optional(),
+  flowchartData: z.string().optional(),
 }).refine(
   (data) => Object.keys(data).length > 0,
   { message: "Pelo menos um campo deve ser fornecido para atualização" }

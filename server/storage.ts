@@ -33,7 +33,8 @@ export class MemStorage implements IStorage {
         deadline: "2025-11-15",
         route: "/tarefa/1",
         difficulty: "Intermediário",
-        order: 0
+        order: 0,
+        flowchartData: null
       },
       {
         id: 2,
@@ -42,7 +43,8 @@ export class MemStorage implements IStorage {
         deadline: "2025-11-20",
         route: "/tarefa/2",
         difficulty: "Básico",
-        order: 1
+        order: 1,
+        flowchartData: null
       },
       {
         id: 3,
@@ -51,7 +53,8 @@ export class MemStorage implements IStorage {
         deadline: "2025-11-25",
         route: "/tarefa/3",
         difficulty: "Avançado",
-        order: 2
+        order: 2,
+        flowchartData: null
       },
       {
         id: 4,
@@ -60,7 +63,8 @@ export class MemStorage implements IStorage {
         deadline: "2025-12-01",
         route: "/tarefa/4",
         difficulty: "Avançado",
-        order: 3
+        order: 3,
+        flowchartData: null
       }
     ];
 

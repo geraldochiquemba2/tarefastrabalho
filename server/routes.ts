@@ -46,6 +46,71 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.post("/api/tasks/:id/flowchart", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { nodes, edges } = req.body;
+      
+      if (!nodes || !edges) {
+        return res.status(400).json({ message: "nodes e edges são obrigatórios" });
+      }
+      
+      if (!Array.isArray(nodes) || !Array.isArray(edges)) {
+        return res.status(400).json({ message: "nodes e edges devem ser arrays" });
+      }
+      
+      const nodeSchema = z.object({
+        id: z.string(),
+        type: z.string(),
+        position: z.object({
+          x: z.number(),
+          y: z.number(),
+        }),
+        data: z.object({
+          label: z.string(),
+          type: z.string(),
+          description: z.string().optional(),
+          details: z.array(z.string()).optional(),
+          icon: z.string().optional(),
+        }),
+      });
+      
+      const edgeSchema = z.object({
+        id: z.string(),
+        source: z.string(),
+        target: z.string(),
+        label: z.string().optional(),
+        animated: z.boolean().optional(),
+        style: z.record(z.any()).optional(),
+      });
+      
+      const flowchartSchema = z.object({
+        nodes: z.array(nodeSchema).max(100),
+        edges: z.array(edgeSchema).max(200),
+      });
+      
+      const validatedData = flowchartSchema.parse({ nodes, edges });
+      const flowchartData = JSON.stringify(validatedData);
+      
+      if (flowchartData.length > 100000) {
+        return res.status(400).json({ message: "Dados do fluxograma muito grandes" });
+      }
+      
+      const updatedTask = await storage.updateTask(id, { flowchartData });
+      
+      if (!updatedTask) {
+        return res.status(404).json({ message: "Tarefa não encontrada" });
+      }
+      
+      res.json(updatedTask);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Dados do fluxograma inválidos", errors: error.errors });
+      }
+      res.status(500).json({ message: "Erro ao salvar fluxograma" });
+    }
+  });
+
   app.post("/api/tasks/reorder", async (req, res) => {
     try {
       const { taskIds } = req.body;
