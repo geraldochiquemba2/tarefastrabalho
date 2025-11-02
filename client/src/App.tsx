@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactFlowProvider } from 'reactflow';
+import { ThemeProvider } from "@/components/ThemeProvider";
 import LandingPage from "@/pages/LandingPage";
 import TaskPage from "@/pages/TaskPage";
 import NotFound from "@/pages/not-found";
@@ -20,14 +21,16 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <ReactFlowProvider>
-          <Toaster />
-          <Router />
-        </ReactFlowProvider>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider defaultTheme="light">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <ReactFlowProvider>
+            <Toaster />
+            <Router />
+          </ReactFlowProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

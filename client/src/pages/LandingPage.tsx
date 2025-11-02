@@ -4,6 +4,7 @@ import { Book, Calendar, Award, Workflow } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import type { Task } from "@shared/schema";
 import backgroundImage from "@assets/stock_images/modern_tech_workspac_de275496.jpg";
 
@@ -48,18 +49,21 @@ export default function LandingPage() {
         
         <header className="relative border-b border-border/50 backdrop-blur-sm bg-card/30">
           <div className="container mx-auto px-4 py-8">
-            <div className="flex items-center gap-4">
-              <div className="p-3 rounded-lg bg-primary/10 backdrop-blur-sm border border-primary/20">
-                <Workflow className="w-10 h-10 text-primary" />
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-primary/10 backdrop-blur-sm border border-primary/20">
+                  <Workflow className="w-10 h-10 text-primary" />
+                </div>
+                <div>
+                  <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                    Engenharia de Software
+                  </h1>
+                  <p className="text-lg text-muted-foreground mt-1">
+                    Plataforma de Entregas de Fluxogramas
+                  </p>
+                </div>
               </div>
-              <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                  Engenharia de Software
-                </h1>
-                <p className="text-lg text-muted-foreground mt-1">
-                  Plataforma de Entregas de Fluxogramas
-                </p>
-              </div>
+              <ThemeToggle />
             </div>
           </div>
         </header>

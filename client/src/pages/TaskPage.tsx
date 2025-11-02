@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import FlowchartCanvas from "@/components/FlowchartCanvas";
 import FlowchartLegend from "@/components/FlowchartLegend";
 import type { Task } from "@shared/schema";
@@ -61,6 +62,7 @@ export default function TaskPage() {
             {task.description}
           </p>
         </div>
+        <ThemeToggle />
       </div>
 
       <div className="flex flex-1 overflow-hidden relative">
