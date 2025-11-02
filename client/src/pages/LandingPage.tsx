@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Task } from "@shared/schema";
+import backgroundImage from "@assets/stock_images/modern_tech_workspac_de275496.jpg";
 
 export default function LandingPage() {
   const { data: tasks, isLoading } = useQuery<Task[]>({
@@ -73,7 +74,19 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 pb-12 -mt-8 relative z-10">
+      {/* Main Content Section with Background Image */}
+      <div className="relative py-16 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-chart-2/10"></div>
+        </div>
+
+        <main className="container mx-auto px-4 relative z-10">
 
         {isLoading ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -138,24 +151,25 @@ export default function LandingPage() {
           </div>
         )}
 
-        <div className="mt-12 p-8 rounded-lg bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
-          <div className="flex items-start gap-4 relative">
-            <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-              <Award className="w-6 h-6 text-primary" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-3">Sobre a Plataforma</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Esta plataforma foi desenvolvida para auxiliar no aprendizado e prática de
-                modelagem de processos através de fluxogramas. Cada tarefa apresenta um
-                cenário diferente que você deve modelar seguindo as melhores práticas de
-                Engenharia de Software.
-              </p>
+          <div className="mt-12 p-8 rounded-lg bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+            <div className="flex items-start gap-4 relative">
+              <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+                <Award className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-3">Sobre a Plataforma</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Esta plataforma foi desenvolvida para auxiliar no aprendizado e prática de
+                  modelagem de processos através de fluxogramas. Cada tarefa apresenta um
+                  cenário diferente que você deve modelar seguindo as melhores práticas de
+                  Engenharia de Software.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }
