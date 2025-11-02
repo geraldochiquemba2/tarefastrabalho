@@ -35,34 +35,50 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-md bg-primary/10">
-              <Workflow className="w-8 h-8 text-primary" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold">Engenharia de Software</h1>
-              <p className="text-muted-foreground">
-                Plataforma de Entregas de Fluxogramas
-              </p>
+      {/* Hero Section with Gradient Background */}
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-background"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,hsl(var(--chart-2)/0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)/0.08) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
+        
+        <header className="relative border-b border-border/50 backdrop-blur-sm bg-card/30">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex items-center gap-4">
+              <div className="p-3 rounded-lg bg-primary/10 backdrop-blur-sm border border-primary/20">
+                <Workflow className="w-10 h-10 text-primary" />
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                  Engenharia de Software
+                </h1>
+                <p className="text-lg text-muted-foreground mt-1">
+                  Plataforma de Entregas de Fluxogramas
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <main className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-2">Tarefas Disponíveis</h2>
-          <p className="text-muted-foreground">
-            Escolha uma tarefa abaixo para visualizar e desenvolver seu fluxograma
-          </p>
+        <div className="relative container mx-auto px-4 py-12">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold mb-3">Tarefas Disponíveis</h2>
+            <p className="text-lg text-muted-foreground">
+              Escolha uma tarefa abaixo para visualizar e desenvolver seu fluxograma
+            </p>
+          </div>
         </div>
+      </div>
+
+      <main className="container mx-auto px-4 pb-12 -mt-8 relative z-10">
 
         {isLoading ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((i) => (
-              <Card key={i} className="animate-pulse">
+              <Card key={i} className="animate-pulse backdrop-blur-sm bg-card/80">
                 <CardHeader>
                   <div className="h-6 bg-muted rounded w-3/4 mb-2"></div>
                   <div className="h-4 bg-muted rounded w-full"></div>
@@ -78,12 +94,15 @@ export default function LandingPage() {
             {tasks?.map((task) => (
               <Card
                 key={task.id}
-                className="hover-elevate transition-all duration-200"
+                className="hover-elevate transition-all duration-300 backdrop-blur-sm bg-card/80 border-card-border/50 overflow-hidden group"
                 data-testid={`card-task-${task.id}`}
               >
-                <CardHeader>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <CardHeader className="relative">
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <Book className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div className="p-2 rounded-md bg-primary/10">
+                      <Book className="w-5 h-5 text-primary" />
+                    </div>
                     <Badge
                       className={getDifficultyColor(task.difficulty)}
                       data-testid={`badge-difficulty-${task.id}`}
@@ -98,7 +117,7 @@ export default function LandingPage() {
                     {task.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 relative">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Calendar className="w-4 h-4" />
                     <span data-testid={`text-deadline-${task.id}`}>
@@ -119,12 +138,15 @@ export default function LandingPage() {
           </div>
         )}
 
-        <div className="mt-12 p-6 rounded-md bg-primary/5 border border-primary/20">
-          <div className="flex items-start gap-3">
-            <Award className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+        <div className="mt-12 p-8 rounded-lg bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+          <div className="flex items-start gap-4 relative">
+            <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
+              <Award className="w-6 h-6 text-primary" />
+            </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Sobre a Plataforma</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="text-xl font-semibold mb-3">Sobre a Plataforma</h3>
+              <p className="text-muted-foreground leading-relaxed">
                 Esta plataforma foi desenvolvida para auxiliar no aprendizado e prática de
                 modelagem de processos através de fluxogramas. Cada tarefa apresenta um
                 cenário diferente que você deve modelar seguindo as melhores práticas de
