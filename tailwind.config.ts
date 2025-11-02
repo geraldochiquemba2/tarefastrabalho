@@ -81,6 +81,19 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        flow: {
+          book: "hsl(210 85% 45%)",
+          author: "hsl(280 70% 48%)",
+          category: "hsl(25 90% 48%)",
+          success: "hsl(150 65% 40%)",
+          error: "hsl(0 72% 42%)",
+          warning: "hsl(45 93% 47%)",
+        },
+        label: {
+          red: "hsl(0 72% 42%)",
+          yellow: "hsl(45 93% 47%)",
+          white: "hsl(210 5% 98%)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
