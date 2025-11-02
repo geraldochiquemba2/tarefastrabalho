@@ -36,7 +36,7 @@ git push origin main
    - **Region**: Escolha a região mais próxima
    - **Branch**: `main` (ou sua branch principal)
    - **Runtime**: `Node`
-   - **Build Command**: `npm ci && npm run build`
+   - **Build Command**: `npm install && npm run build`
    - **Start Command**: `npm start`
    - **Plan**: `Free`
 
@@ -44,10 +44,11 @@ git push origin main
 
 Na seção **"Environment Variables"**, adicione:
 
-- **NODE_ENV**: `production`
 - **RENDER_EXTERNAL_URL**: A URL do seu serviço (exemplo: `https://flowchart-tasks-app.onrender.com`)
   
   > **Importante**: Após criar o serviço, você receberá a URL. Volte às configurações e adicione esta variável com a URL completa.
+  
+  > **Nota**: Não configure NODE_ENV=production antes do build, pois isso impede a instalação de ferramentas necessárias (vite, esbuild).
 
 ### 4. Deploy Automático
 
@@ -126,9 +127,10 @@ Para maior confiabilidade, use um serviço externo de monitoramento:
 
 Se o build falhar com erro "vite: not found" ou "esbuild: not found", verifique:
 
-1. O comando de build deve ser `npm ci && npm run build` (não `npm install --production`)
-2. Certifique-se de que o arquivo `package-lock.json` está no repositório
-3. Teste localmente:
+1. O comando de build deve ser `npm install && npm run build`
+2. NÃO configure NODE_ENV=production antes do build (isso impede instalação de devDependencies)
+3. Certifique-se de que o arquivo `package-lock.json` está no repositório
+4. Teste localmente:
 
 ```bash
 # Limpar node_modules
@@ -140,9 +142,10 @@ npm run build
 npm start
 ```
 
-Se o problema persistir, pode ser necessário configurar manualmente no painel do Render:
-- Build Command: `npm ci && npm run build`
+Se o problema persistir, verifique no painel do Render (Settings → Build & Deploy):
+- Build Command: `npm install && npm run build`
 - Start Command: `npm start`
+- Environment Variables: NÃO inclua NODE_ENV=production (deixe o Render configurar automaticamente)
 
 ## Atualizações
 
