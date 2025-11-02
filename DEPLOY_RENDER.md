@@ -11,9 +11,15 @@ Este guia explica como hospedar a aplicação no Render com sistema keep-alive p
 
 ### 1. Preparar o Repositório
 
-Certifique-se de que todos os arquivos estão commitados no seu repositório Git:
+**IMPORTANTE**: Certifique-se de que o arquivo `package-lock.json` está incluído no repositório. Este arquivo é essencial para o build no Render.
+
+Verifique e commite todos os arquivos:
 
 ```bash
+# Verificar se package-lock.json existe
+ls -la package-lock.json
+
+# Adicionar todos os arquivos (incluindo package-lock.json)
 git add .
 git commit -m "Configuração para deploy no Render"
 git push origin main
@@ -30,7 +36,7 @@ git push origin main
    - **Region**: Escolha a região mais próxima
    - **Branch**: `main` (ou sua branch principal)
    - **Runtime**: `Node`
-   - **Build Command**: `npm install && npm run build`
+   - **Build Command**: `npm ci && npm run build`
    - **Start Command**: `npm start`
    - **Plan**: `Free`
 
@@ -118,12 +124,25 @@ Para maior confiabilidade, use um serviço externo de monitoramento:
 
 ### Build falha
 
+Se o build falhar com erro "vite: not found" ou "esbuild: not found", verifique:
+
+1. O comando de build deve ser `npm ci && npm run build` (não `npm install --production`)
+2. Certifique-se de que o arquivo `package-lock.json` está no repositório
+3. Teste localmente:
+
 ```bash
-# Teste localmente antes de fazer deploy
+# Limpar node_modules
+rm -rf node_modules package-lock.json
+
+# Reinstalar e testar
 npm install
 npm run build
 npm start
 ```
+
+Se o problema persistir, pode ser necessário configurar manualmente no painel do Render:
+- Build Command: `npm ci && npm run build`
+- Start Command: `npm start`
 
 ## Atualizações
 

@@ -107,7 +107,7 @@ Preferred communication style: Simple, everyday language.
 - Render-ready configuration with `render.yaml` blueprint
 - Automated keep-alive system to prevent free-tier hibernation
 - Health check endpoint at `/ping` for uptime monitoring
-- Build command: `npm install && npm run build`
+- Build command: `npm ci && npm run build`
 - Start command: `npm start`
 - Detailed deployment guide available in `DEPLOY_RENDER.md`
 
