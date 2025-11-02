@@ -5,7 +5,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '1',
     type: 'custom',
-    position: { x: 400, y: 50 },
+    position: { x: 400, y: 70 },
     data: {
       label: 'Início',
       type: 'start',
@@ -15,7 +15,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '2',
     type: 'custom',
-    position: { x: 400, y: 200 },
+    position: { x: 400, y: 350 },
     data: {
       label: 'Divulgação Período de Matrícula e Exames',
       type: 'process',
@@ -26,7 +26,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '3',
     type: 'custom',
-    position: { x: 400, y: 350 },
+    position: { x: 400, y: 630 },
     data: {
       label: 'Pré-Cadastro Online para Exame de Acesso',
       type: 'process',
@@ -37,7 +37,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '4',
     type: 'custom',
-    position: { x: 400, y: 500 },
+    position: { x: 400, y: 910 },
     data: {
       label: 'Upload de Documentos',
       type: 'process',
@@ -48,7 +48,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '5',
     type: 'custom',
-    position: { x: 400, y: 650 },
+    position: { x: 400, y: 1190 },
     data: {
       label: 'Validação Automática de Requisitos Mínimos',
       type: 'process',
@@ -59,7 +59,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '6',
     type: 'custom',
-    position: { x: 400, y: 800 },
+    position: { x: 400, y: 1470 },
     data: {
       label: 'Atende Requisitos?',
       type: 'gateway',
@@ -69,7 +69,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '7',
     type: 'custom',
-    position: { x: 700, y: 950 },
+    position: { x: 750, y: 1750 },
     data: {
       label: 'Notificar Eliminação',
       type: 'process',
@@ -80,7 +80,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '8',
     type: 'custom',
-    position: { x: 700, y: 1100 },
+    position: { x: 750, y: 2030 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -90,7 +90,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '9',
     type: 'custom',
-    position: { x: 400, y: 1000 },
+    position: { x: 400, y: 1820 },
     data: {
       label: 'Gerar Boleto Taxa de Inscrição',
       type: 'process',
@@ -101,7 +101,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '10',
     type: 'custom',
-    position: { x: 400, y: 1150 },
+    position: { x: 400, y: 2100 },
     data: {
       label: 'Pagamento da Taxa de Inscrição',
       type: 'process',
@@ -111,7 +111,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '11',
     type: 'custom',
-    position: { x: 400, y: 1300 },
+    position: { x: 400, y: 1820 },
     data: {
       label: 'Pagamento Confirmado?',
       type: 'gateway',
@@ -121,7 +121,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '12',
     type: 'custom',
-    position: { x: 700, y: 1300 },
+    position: { x: 700, y: 1820 },
     data: {
       label: 'Lembrar Pagamento',
       type: 'process',
@@ -131,7 +131,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '13',
     type: 'custom',
-    position: { x: 700, y: 1450 },
+    position: { x: 700, y: 2030 },
     data: {
       label: 'Aguardar Confirmação',
       type: 'process',
@@ -141,7 +141,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '14',
     type: 'custom',
-    position: { x: 400, y: 1550 },
+    position: { x: 400, y: 2170 },
     data: {
       label: 'Emissão do Cartão de Identificação',
       type: 'process',
@@ -152,7 +152,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '15',
     type: 'custom',
-    position: { x: 400, y: 1700 },
+    position: { x: 400, y: 2380 },
     data: {
       label: 'Realização do Exame de Acesso',
       type: 'process',
@@ -163,7 +163,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '16',
     type: 'custom',
-    position: { x: 400, y: 1850 },
+    position: { x: 400, y: 2590 },
     data: {
       label: 'Correção das Provas',
       type: 'process',
@@ -174,7 +174,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '17',
     type: 'custom',
-    position: { x: 400, y: 2000 },
+    position: { x: 400, y: 2800 },
     data: {
       label: 'Publicação da Lista de Aprovados',
       type: 'process',
@@ -185,7 +185,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '18',
     type: 'custom',
-    position: { x: 400, y: 2150 },
+    position: { x: 400, y: 3010 },
     data: {
       label: 'Aprovado no Exame?',
       type: 'gateway',
@@ -195,7 +195,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '19',
     type: 'custom',
-    position: { x: 700, y: 2300 },
+    position: { x: 700, y: 3220 },
     data: {
       label: 'Notificar "Não Aprovado"',
       type: 'process',
@@ -205,7 +205,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '20',
     type: 'custom',
-    position: { x: 700, y: 2450 },
+    position: { x: 700, y: 3430 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -215,7 +215,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '21',
     type: 'custom',
-    position: { x: 400, y: 2350 },
+    position: { x: 400, y: 3290 },
     data: {
       label: 'Seleção do Curso por Ordem de Classificação',
       type: 'process',
@@ -226,7 +226,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '22',
     type: 'custom',
-    position: { x: 400, y: 2500 },
+    position: { x: 400, y: 3500 },
     data: {
       label: 'Vaga Disponível no Curso Escolhido?',
       type: 'gateway',
@@ -236,7 +236,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '23',
     type: 'custom',
-    position: { x: 100, y: 2700 },
+    position: { x: 100, y: 3780 },
     data: {
       label: 'Oferecer Curso Alternativo',
       type: 'process',
@@ -247,7 +247,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '24',
     type: 'custom',
-    position: { x: 100, y: 2850 },
+    position: { x: 100, y: 3990 },
     data: {
       label: 'Aceita Curso Alternativo?',
       type: 'gateway',
@@ -277,7 +277,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '27',
     type: 'custom',
-    position: { x: 100, y: 3050 },
+    position: { x: 100, y: 4270 },
     data: {
       label: 'Atribuição ao Curso Alternativo',
       type: 'process',
@@ -287,7 +287,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '28',
     type: 'custom',
-    position: { x: 400, y: 2750 },
+    position: { x: 400, y: 3850 },
     data: {
       label: 'Confirmação da Vaga no Curso',
       type: 'process',
@@ -298,7 +298,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '29',
     type: 'custom',
-    position: { x: 400, y: 3150 },
+    position: { x: 400, y: 4410 },
     data: {
       label: 'Upload de Documentos Definitivos',
       type: 'process',
@@ -309,7 +309,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '30',
     type: 'custom',
-    position: { x: 400, y: 3300 },
+    position: { x: 400, y: 4620 },
     data: {
       label: 'Validação Final de Documentos',
       type: 'process',
@@ -319,7 +319,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '31',
     type: 'custom',
-    position: { x: 400, y: 3450 },
+    position: { x: 400, y: 4830 },
     data: {
       label: 'Gerar Boleto de Taxa de Matrícula',
       type: 'process',
@@ -329,7 +329,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '32',
     type: 'custom',
-    position: { x: 400, y: 3600 },
+    position: { x: 400, y: 5040 },
     data: {
       label: 'Pagamento da Taxa de Matrícula',
       type: 'process',
@@ -339,7 +339,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '33',
     type: 'custom',
-    position: { x: 400, y: 3750 },
+    position: { x: 400, y: 5250 },
     data: {
       label: 'Pagamento Confirmado?',
       type: 'gateway',
@@ -349,7 +349,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '34',
     type: 'custom',
-    position: { x: 700, y: 3750 },
+    position: { x: 700, y: 5250 },
     data: {
       label: 'Lembrar Pagamento',
       type: 'process',
@@ -359,7 +359,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '35',
     type: 'custom',
-    position: { x: 700, y: 3900 },
+    position: { x: 700, y: 5460 },
     data: {
       label: 'Aguardar Confirmação',
       type: 'process',
@@ -369,7 +369,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '36',
     type: 'custom',
-    position: { x: 400, y: 4000 },
+    position: { x: 400, y: 5600 },
     data: {
       label: 'Atribuição Automática de Turma',
       type: 'process',
@@ -380,7 +380,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '37',
     type: 'custom',
-    position: { x: 400, y: 4150 },
+    position: { x: 400, y: 5810 },
     data: {
       label: 'Seleção de Disciplinas no Sistema Acadêmico',
       type: 'process',
@@ -391,7 +391,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '38',
     type: 'custom',
-    position: { x: 400, y: 4300 },
+    position: { x: 400, y: 6020 },
     data: {
       label: 'Confirmação de Horário',
       type: 'process',
@@ -401,7 +401,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '39',
     type: 'custom',
-    position: { x: 400, y: 4450 },
+    position: { x: 400, y: 6230 },
     data: {
       label: 'Conflito de Horário?',
       type: 'gateway',
@@ -411,7 +411,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '40',
     type: 'custom',
-    position: { x: 700, y: 4450 },
+    position: { x: 700, y: 6230 },
     data: {
       label: 'Ajustar Seleção de Disciplinas',
       type: 'process',
@@ -421,7 +421,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '41',
     type: 'custom',
-    position: { x: 400, y: 4700 },
+    position: { x: 400, y: 6580 },
     data: {
       label: 'Gerar Comprovante Definitivo de Matrícula',
       type: 'process',
@@ -432,7 +432,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '42',
     type: 'custom',
-    position: { x: 400, y: 4850 },
+    position: { x: 400, y: 6790 },
     data: {
       label: 'Ativação de Acesso aos Sistemas',
       type: 'process',
@@ -443,7 +443,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '43',
     type: 'custom',
-    position: { x: 400, y: 5000 },
+    position: { x: 400, y: 7000 },
     data: {
       label: 'Integração com Biblioteca',
       type: 'process',
@@ -454,7 +454,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '44',
     type: 'custom',
-    position: { x: 400, y: 5150 },
+    position: { x: 400, y: 7210 },
     data: {
       label: 'É Caloiro?',
       type: 'gateway',
@@ -464,7 +464,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '45',
     type: 'custom',
-    position: { x: 150, y: 5350 },
+    position: { x: 150, y: 7490 },
     data: {
       label: 'Incluir em Programa de Receção a Caloiros',
       type: 'process',
@@ -475,7 +475,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '46',
     type: 'custom',
-    position: { x: 650, y: 5350 },
+    position: { x: 650, y: 7490 },
     data: {
       label: 'Atualizar Dados do Estudante',
       type: 'process',
@@ -485,7 +485,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '47',
     type: 'custom',
-    position: { x: 400, y: 5550 },
+    position: { x: 400, y: 7770 },
     data: {
       label: 'Entrega de Cartão de Estudante',
       type: 'process',
@@ -496,7 +496,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '48',
     type: 'custom',
-    position: { x: 400, y: 5700 },
+    position: { x: 400, y: 7980 },
     data: {
       label: 'Orientações Acadêmicas Finais',
       type: 'process',
@@ -507,7 +507,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '49',
     type: 'custom',
-    position: { x: 400, y: 5850 },
+    position: { x: 400, y: 8190 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -517,57 +517,57 @@ export const task4Nodes: FlowNode[] = [
 ];
 
 export const task4Edges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3', animated: true },
-  { id: 'e3-4', source: '3', target: '4', animated: true },
-  { id: 'e4-5', source: '4', target: '5', animated: true },
-  { id: 'e5-6', source: '5', target: '6', animated: true },
-  { id: 'e6-7', source: '6', target: '7', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e7-8', source: '7', target: '8', style: { stroke: '#dc2626' } },
-  { id: 'e6-9', source: '6', target: '9', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e9-10', source: '9', target: '10', animated: true },
-  { id: 'e10-11', source: '10', target: '11', animated: true },
-  { id: 'e11-12', source: '11', target: '12', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e12-13', source: '12', target: '13' },
-  { id: 'e13-11', source: '13', target: '11', type: 'smoothstep', style: { stroke: '#f59e0b' } },
-  { id: 'e11-14', source: '11', target: '14', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e14-15', source: '14', target: '15', animated: true },
-  { id: 'e15-16', source: '15', target: '16', animated: true },
-  { id: 'e16-17', source: '16', target: '17', animated: true },
-  { id: 'e17-18', source: '17', target: '18', animated: true },
-  { id: 'e18-19', source: '18', target: '19', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e19-20', source: '19', target: '20', style: { stroke: '#dc2626' } },
-  { id: 'e18-21', source: '18', target: '21', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e21-22', source: '21', target: '22', animated: true },
-  { id: 'e22-23', source: '22', target: '23', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e23-24', source: '23', target: '24' },
-  { id: 'e24-25', source: '24', target: '25', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e25-26', source: '25', target: '26', style: { stroke: '#dc2626' } },
-  { id: 'e24-27', source: '24', target: '27', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e27-29', source: '27', target: '29', type: 'smoothstep' },
-  { id: 'e22-28', source: '22', target: '28', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e28-29', source: '28', target: '29', animated: true },
-  { id: 'e29-30', source: '29', target: '30', animated: true },
-  { id: 'e30-31', source: '30', target: '31', animated: true },
-  { id: 'e31-32', source: '31', target: '32', animated: true },
-  { id: 'e32-33', source: '32', target: '33', animated: true },
-  { id: 'e33-34', source: '33', target: '34', label: 'Não', style: { stroke: '#dc2626' } },
-  { id: 'e34-35', source: '34', target: '35' },
-  { id: 'e35-33', source: '35', target: '33', type: 'smoothstep', style: { stroke: '#f59e0b' } },
-  { id: 'e33-36', source: '33', target: '36', label: 'Sim', style: { stroke: '#16a34a' } },
-  { id: 'e36-37', source: '36', target: '37', animated: true },
-  { id: 'e37-38', source: '37', target: '38', animated: true },
-  { id: 'e38-39', source: '38', target: '39', animated: true },
-  { id: 'e39-40', source: '39', target: '40', label: 'Sim', style: { stroke: '#dc2626' } },
-  { id: 'e40-37', source: '40', target: '37', type: 'smoothstep', style: { stroke: '#f59e0b' } },
-  { id: 'e39-41', source: '39', target: '41', label: 'Não', style: { stroke: '#16a34a' } },
-  { id: 'e41-42', source: '41', target: '42', animated: true },
-  { id: 'e42-43', source: '42', target: '43', animated: true },
-  { id: 'e43-44', source: '43', target: '44', animated: true },
-  { id: 'e44-45', source: '44', target: '45', label: 'Sim', style: { stroke: '#2563eb' } },
-  { id: 'e44-46', source: '44', target: '46', label: 'Não' },
-  { id: 'e45-47', source: '45', target: '47' },
-  { id: 'e46-47', source: '46', target: '47' },
-  { id: 'e47-48', source: '47', target: '48', animated: true },
-  { id: 'e48-49', source: '48', target: '49', animated: true },
+  { id: 'e1-2', source: '1', target: '2', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e2-3', source: '2', target: '3', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e3-4', source: '3', target: '4', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e4-5', source: '4', target: '5', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e5-6', source: '5', target: '6', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e6-7', source: '6', target: '7', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e7-8', source: '7', target: '8', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e6-9', source: '6', target: '9', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e9-10', source: '9', target: '10', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e10-11', source: '10', target: '11', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e11-12', source: '11', target: '12', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e12-13', source: '12', target: '13', animated: true, style: { strokeWidth: 2.5, stroke: '#f59e0b' } },
+  { id: 'e13-11', source: '13', target: '11', type: 'smoothstep', style: { stroke: '#f59e0b', strokeWidth: 2.5 }, animated: true },
+  { id: 'e11-14', source: '11', target: '14', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e14-15', source: '14', target: '15', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e15-16', source: '15', target: '16', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e16-17', source: '16', target: '17', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e17-18', source: '17', target: '18', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e18-19', source: '18', target: '19', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e19-20', source: '19', target: '20', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e18-21', source: '18', target: '21', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e21-22', source: '21', target: '22', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e22-23', source: '22', target: '23', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e23-24', source: '23', target: '24', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e24-25', source: '24', target: '25', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e25-26', source: '25', target: '26', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e24-27', source: '24', target: '27', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e27-29', source: '27', target: '29', type: 'smoothstep', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e22-28', source: '22', target: '28', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e28-29', source: '28', target: '29', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e29-30', source: '29', target: '30', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e30-31', source: '30', target: '31', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e31-32', source: '31', target: '32', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e32-33', source: '32', target: '33', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e33-34', source: '33', target: '34', label: 'Não', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e34-35', source: '34', target: '35', animated: true, style: { strokeWidth: 2.5, stroke: '#f59e0b' } },
+  { id: 'e35-33', source: '35', target: '33', type: 'smoothstep', style: { stroke: '#f59e0b', strokeWidth: 2.5 }, animated: true },
+  { id: 'e33-36', source: '33', target: '36', label: 'Sim', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e36-37', source: '36', target: '37', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e37-38', source: '37', target: '38', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e38-39', source: '38', target: '39', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e39-40', source: '39', target: '40', label: 'Sim', style: { stroke: '#dc2626', strokeWidth: 2.5 }, animated: true },
+  { id: 'e40-37', source: '40', target: '37', type: 'smoothstep', style: { stroke: '#f59e0b', strokeWidth: 2.5 }, animated: true },
+  { id: 'e39-41', source: '39', target: '41', label: 'Não', style: { stroke: '#16a34a', strokeWidth: 2.5 }, animated: true },
+  { id: 'e41-42', source: '41', target: '42', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e42-43', source: '42', target: '43', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e43-44', source: '43', target: '44', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e44-45', source: '44', target: '45', label: 'Sim', style: { stroke: '#2563eb', strokeWidth: 2.5 }, animated: true },
+  { id: 'e44-46', source: '44', target: '46', label: 'Não', animated: true, style: { strokeWidth: 2.5, stroke: '#6b7280' } },
+  { id: 'e45-47', source: '45', target: '47', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e46-47', source: '46', target: '47', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e47-48', source: '47', target: '48', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
+  { id: 'e48-49', source: '48', target: '49', animated: true, style: { strokeWidth: 2.5, stroke: '#2563eb' } },
 ];
