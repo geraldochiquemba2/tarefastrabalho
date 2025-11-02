@@ -16,7 +16,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '1',
     type: 'custom',
-    position: { x: 400, y: 50 },
+    position: { x: 500, y: 50 },
     data: {
       label: 'Início',
       type: 'start',
@@ -26,7 +26,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '2',
     type: 'custom',
-    position: { x: 400, y: 150 },
+    position: { x: 500, y: 180 },
     data: {
       label: 'Receber Solicitação de Cadastro',
       type: 'process',
@@ -37,7 +37,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '3',
     type: 'custom',
-    position: { x: 400, y: 280 },
+    position: { x: 500, y: 340 },
     data: {
       label: 'Tipo de Cadastro?',
       type: 'gateway',
@@ -47,7 +47,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '4',
     type: 'custom',
-    position: { x: 100, y: 420 },
+    position: { x: 100, y: 520 },
     data: {
       label: 'Método de Registro?',
       type: 'gateway',
@@ -57,7 +57,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '5',
     type: 'custom',
-    position: { x: 0, y: 560 },
+    position: { x: -80, y: 700 },
     data: {
       label: 'Inserir Dados Manualmente',
       type: 'book',
@@ -68,7 +68,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '6',
     type: 'custom',
-    position: { x: 200, y: 560 },
+    position: { x: 280, y: 700 },
     data: {
       label: 'Registro por Captura Fotográfica',
       type: 'book',
@@ -79,7 +79,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '7',
     type: 'custom',
-    position: { x: 400, y: 420 },
+    position: { x: 500, y: 520 },
     data: {
       label: 'Inserir Dados do Autor',
       type: 'author',
@@ -90,7 +90,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '8',
     type: 'custom',
-    position: { x: 700, y: 420 },
+    position: { x: 900, y: 520 },
     data: {
       label: 'Criar Nova Categoria',
       type: 'category',
@@ -101,7 +101,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '9',
     type: 'custom',
-    position: { x: 400, y: 700 },
+    position: { x: 500, y: 880 },
     data: {
       label: 'Validar Dados no Sistema',
       type: 'process',
@@ -112,7 +112,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '10',
     type: 'custom',
-    position: { x: 400, y: 830 },
+    position: { x: 500, y: 1040 },
     data: {
       label: 'Dados Válidos?',
       type: 'gateway',
@@ -122,7 +122,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '11',
     type: 'custom',
-    position: { x: 650, y: 830 },
+    position: { x: 800, y: 1040 },
     data: {
       label: 'Solicitar Correção',
       type: 'process',
@@ -133,7 +133,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '12',
     type: 'custom',
-    position: { x: 400, y: 970 },
+    position: { x: 500, y: 1220 },
     data: {
       label: 'Registrar no Banco de Dados',
       type: 'process',
@@ -144,7 +144,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '13',
     type: 'custom',
-    position: { x: 400, y: 1100 },
+    position: { x: 500, y: 1380 },
     data: {
       label: 'Atribuir Código Único',
       type: 'process',
@@ -155,7 +155,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '14',
     type: 'custom',
-    position: { x: 400, y: 1230 },
+    position: { x: 500, y: 1540 },
     data: {
       label: 'É Livro?',
       type: 'gateway',
@@ -165,7 +165,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '15',
     type: 'custom',
-    position: { x: 200, y: 1370 },
+    position: { x: 200, y: 1720 },
     data: {
       label: 'Atribuir Etiqueta',
       type: 'book',
@@ -176,7 +176,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '16',
     type: 'custom',
-    position: { x: 200, y: 1500 },
+    position: { x: 200, y: 1900 },
     data: {
       label: 'Requer Etiqueta Física?',
       type: 'gateway',
@@ -186,7 +186,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '17',
     type: 'custom',
-    position: { x: 0, y: 1640 },
+    position: { x: -50, y: 2080 },
     data: {
       label: 'Imprimir Etiqueta',
       type: 'process',
@@ -197,7 +197,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '18',
     type: 'custom',
-    position: { x: 400, y: 1640 },
+    position: { x: 450, y: 2080 },
     data: {
       label: 'Apenas Registro Digital',
       type: 'process',
@@ -207,7 +207,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '19',
     type: 'custom',
-    position: { x: 400, y: 1780 },
+    position: { x: 500, y: 2260 },
     data: {
       label: 'Notificar Cadastro Concluído',
       type: 'process',
@@ -218,7 +218,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '20',
     type: 'custom',
-    position: { x: 400, y: 1910 },
+    position: { x: 500, y: 2420 },
     data: {
       label: 'Atualizar Catálogo',
       type: 'process',
@@ -229,7 +229,7 @@ export const flowchartNodes: FlowNode[] = [
   {
     id: '21',
     type: 'custom',
-    position: { x: 400, y: 2040 },
+    position: { x: 500, y: 2580 },
     data: {
       label: 'Fim',
       type: 'end',
