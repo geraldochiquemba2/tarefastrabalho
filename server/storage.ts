@@ -1,4 +1,4 @@
-import { type User, type InsertUser } from "@shared/schema";
+import { type User, type InsertUser, type Task, type InsertTask } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 // modify the interface with any CRUD methods
@@ -8,13 +8,51 @@ export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  getTasks(): Promise<Task[]>;
+  getTask(id: number): Promise<Task | undefined>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
+  private tasks: Map<number, Task>;
 
   constructor() {
     this.users = new Map();
+    this.tasks = new Map();
+    this.initializeTasks();
+  }
+
+  private initializeTasks() {
+    const exampleTasks: Task[] = [
+      {
+        id: 1,
+        title: "Fluxograma de Cadastro",
+        description: "Criar um fluxograma completo para o processo de cadastro de livros, autores e categorias em um sistema bibliotecário.",
+        deadline: "2025-11-15",
+        route: "/tarefa/1",
+        difficulty: "Intermediário"
+      },
+      {
+        id: 2,
+        title: "Fluxograma de Login",
+        description: "Desenvolver um fluxograma detalhado para o processo de autenticação de usuários, incluindo validação de credenciais e recuperação de senha.",
+        deadline: "2025-11-20",
+        route: "/tarefa/2",
+        difficulty: "Básico"
+      },
+      {
+        id: 3,
+        title: "Fluxograma de Checkout",
+        description: "Criar um fluxograma para o processo de checkout em um e-commerce, incluindo validação de pagamento e envio de confirmação.",
+        deadline: "2025-11-25",
+        route: "/tarefa/3",
+        difficulty: "Avançado"
+      }
+    ];
+
+    exampleTasks.forEach(task => {
+      this.tasks.set(task.id, task);
+    });
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -32,6 +70,14 @@ export class MemStorage implements IStorage {
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+
+  async getTasks(): Promise<Task[]> {
+    return Array.from(this.tasks.values());
+  }
+
+  async getTask(id: number): Promise<Task | undefined> {
+    return this.tasks.get(id);
   }
 }
 
