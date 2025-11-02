@@ -41,16 +41,24 @@ Preferred communication style: Simple, everyday language.
 **API Design**: RESTful API endpoints for task management:
 - `GET /api/tasks` - Retrieve all tasks
 - `GET /api/tasks/:id` - Retrieve specific task by ID
+- `GET /ping` - Health check endpoint for monitoring and keep-alive
 
 **Data Storage**: Currently using in-memory storage (`MemStorage` class) for development. The application is structured to support PostgreSQL through Drizzle ORM, but the in-memory implementation is active.
 
 **Server-Side Rendering**: Custom Vite SSR setup for development mode, with static file serving in production.
+
+**Keep-Alive System**: Automated self-ping mechanism using node-cron to prevent hibernation on free-tier hosting platforms like Render:
+- Configurable via `RENDER_EXTERNAL_URL` environment variable
+- Pings `/ping` endpoint every 10 minutes when deployed
+- Automatically disabled in development mode when URL is not configured
+- Logs all ping attempts for monitoring
 
 **Key Design Decisions**:
 - Separation of concerns with modular route handlers and storage interfaces
 - Request/response logging middleware for API monitoring
 - Extensible storage interface (`IStorage`) allowing easy transition from in-memory to database persistence
 - Environment-aware configuration (development vs. production modes)
+- Built-in keep-alive system for deployment on free-tier platforms
 
 ### Database Schema (Drizzle ORM)
 
@@ -95,7 +103,20 @@ Preferred communication style: Simple, everyday language.
 - TypeScript with strict mode enabled
 - ESBuild for production bundling
 
+**Deployment**:
+- Render-ready configuration with `render.yaml` blueprint
+- Automated keep-alive system to prevent free-tier hibernation
+- Health check endpoint at `/ping` for uptime monitoring
+- Build command: `npm install && npm run build`
+- Start command: `npm start`
+- Detailed deployment guide available in `DEPLOY_RENDER.md`
+
+**Scheduled Tasks**:
+- node-cron for automated task scheduling
+- Keep-alive cron job (every 10 minutes) for production uptime
+
 **Key Integration Points**:
 - Environment variable configuration for database connections
 - Font integration from Google Fonts (Inter, Architects Daughter, DM Sans, Fira Code, Geist Mono)
 - Path aliases configured for clean imports (`@/`, `@shared/`, `@assets/`)
+- Render deployment via `RENDER_EXTERNAL_URL` environment variable
