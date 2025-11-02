@@ -82,8 +82,8 @@ export default function LandingPage() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${backgroundImage})` }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-chart-2/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/25 to-background/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-chart-2/5"></div>
         </div>
 
         <main className="container mx-auto px-4 relative z-10">
