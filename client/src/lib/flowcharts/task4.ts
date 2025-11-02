@@ -15,7 +15,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '2',
     type: 'custom',
-    position: { x: 400, y: 150 },
+    position: { x: 400, y: 200 },
     data: {
       label: 'Divulgação Período de Matrícula e Exames',
       type: 'process',
@@ -26,7 +26,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '3',
     type: 'custom',
-    position: { x: 400, y: 250 },
+    position: { x: 400, y: 350 },
     data: {
       label: 'Pré-Cadastro Online para Exame de Acesso',
       type: 'process',
@@ -37,7 +37,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '4',
     type: 'custom',
-    position: { x: 400, y: 350 },
+    position: { x: 400, y: 500 },
     data: {
       label: 'Upload de Documentos',
       type: 'process',
@@ -48,7 +48,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '5',
     type: 'custom',
-    position: { x: 400, y: 450 },
+    position: { x: 400, y: 650 },
     data: {
       label: 'Validação Automática de Requisitos Mínimos',
       type: 'process',
@@ -59,7 +59,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '6',
     type: 'custom',
-    position: { x: 400, y: 550 },
+    position: { x: 400, y: 800 },
     data: {
       label: 'Atende Requisitos?',
       type: 'gateway',
@@ -69,7 +69,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '7',
     type: 'custom',
-    position: { x: 650, y: 650 },
+    position: { x: 700, y: 950 },
     data: {
       label: 'Notificar Eliminação',
       type: 'process',
@@ -80,7 +80,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '8',
     type: 'custom',
-    position: { x: 650, y: 750 },
+    position: { x: 700, y: 1100 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -90,7 +90,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '9',
     type: 'custom',
-    position: { x: 400, y: 700 },
+    position: { x: 400, y: 1000 },
     data: {
       label: 'Gerar Boleto Taxa de Inscrição',
       type: 'process',
@@ -101,7 +101,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '10',
     type: 'custom',
-    position: { x: 400, y: 800 },
+    position: { x: 400, y: 1150 },
     data: {
       label: 'Pagamento da Taxa de Inscrição',
       type: 'process',
@@ -111,7 +111,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '11',
     type: 'custom',
-    position: { x: 400, y: 900 },
+    position: { x: 400, y: 1300 },
     data: {
       label: 'Pagamento Confirmado?',
       type: 'gateway',
@@ -121,7 +121,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '12',
     type: 'custom',
-    position: { x: 650, y: 900 },
+    position: { x: 700, y: 1300 },
     data: {
       label: 'Lembrar Pagamento',
       type: 'process',
@@ -131,7 +131,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '13',
     type: 'custom',
-    position: { x: 650, y: 1000 },
+    position: { x: 700, y: 1450 },
     data: {
       label: 'Aguardar Confirmação',
       type: 'process',
@@ -141,7 +141,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '14',
     type: 'custom',
-    position: { x: 400, y: 1050 },
+    position: { x: 400, y: 1550 },
     data: {
       label: 'Emissão do Cartão de Identificação',
       type: 'process',
@@ -152,7 +152,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '15',
     type: 'custom',
-    position: { x: 400, y: 1150 },
+    position: { x: 400, y: 1700 },
     data: {
       label: 'Realização do Exame de Acesso',
       type: 'process',
@@ -163,7 +163,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '16',
     type: 'custom',
-    position: { x: 400, y: 1250 },
+    position: { x: 400, y: 1850 },
     data: {
       label: 'Correção das Provas',
       type: 'process',
@@ -174,7 +174,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '17',
     type: 'custom',
-    position: { x: 400, y: 1350 },
+    position: { x: 400, y: 2000 },
     data: {
       label: 'Publicação da Lista de Aprovados',
       type: 'process',
@@ -185,7 +185,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '18',
     type: 'custom',
-    position: { x: 400, y: 1450 },
+    position: { x: 400, y: 2150 },
     data: {
       label: 'Aprovado no Exame?',
       type: 'gateway',
@@ -195,7 +195,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '19',
     type: 'custom',
-    position: { x: 650, y: 1550 },
+    position: { x: 700, y: 2300 },
     data: {
       label: 'Notificar "Não Aprovado"',
       type: 'process',
@@ -205,7 +205,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '20',
     type: 'custom',
-    position: { x: 650, y: 1650 },
+    position: { x: 700, y: 2450 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -215,7 +215,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '21',
     type: 'custom',
-    position: { x: 400, y: 1600 },
+    position: { x: 400, y: 2350 },
     data: {
       label: 'Seleção do Curso por Ordem de Classificação',
       type: 'process',
@@ -226,7 +226,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '22',
     type: 'custom',
-    position: { x: 400, y: 1700 },
+    position: { x: 400, y: 2500 },
     data: {
       label: 'Vaga Disponível no Curso Escolhido?',
       type: 'gateway',
@@ -236,7 +236,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '23',
     type: 'custom',
-    position: { x: 150, y: 1800 },
+    position: { x: 100, y: 2700 },
     data: {
       label: 'Oferecer Curso Alternativo',
       type: 'process',
@@ -247,7 +247,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '24',
     type: 'custom',
-    position: { x: 150, y: 1900 },
+    position: { x: 100, y: 2850 },
     data: {
       label: 'Aceita Curso Alternativo?',
       type: 'gateway',
@@ -257,7 +257,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '25',
     type: 'custom',
-    position: { x: -50, y: 2000 },
+    position: { x: -150, y: 3050 },
     data: {
       label: 'Notificar Desistência',
       type: 'process',
@@ -267,7 +267,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '26',
     type: 'custom',
-    position: { x: -50, y: 2100 },
+    position: { x: -150, y: 3200 },
     data: {
       label: 'Fim',
       type: 'end',
@@ -277,7 +277,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '27',
     type: 'custom',
-    position: { x: 150, y: 2050 },
+    position: { x: 100, y: 3050 },
     data: {
       label: 'Atribuição ao Curso Alternativo',
       type: 'process',
@@ -287,7 +287,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '28',
     type: 'custom',
-    position: { x: 400, y: 1900 },
+    position: { x: 400, y: 2750 },
     data: {
       label: 'Confirmação da Vaga no Curso',
       type: 'process',
@@ -298,7 +298,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '29',
     type: 'custom',
-    position: { x: 400, y: 2150 },
+    position: { x: 400, y: 3150 },
     data: {
       label: 'Upload de Documentos Definitivos',
       type: 'process',
@@ -309,7 +309,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '30',
     type: 'custom',
-    position: { x: 400, y: 2250 },
+    position: { x: 400, y: 3300 },
     data: {
       label: 'Validação Final de Documentos',
       type: 'process',
@@ -319,7 +319,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '31',
     type: 'custom',
-    position: { x: 400, y: 2350 },
+    position: { x: 400, y: 3450 },
     data: {
       label: 'Gerar Boleto de Taxa de Matrícula',
       type: 'process',
@@ -329,7 +329,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '32',
     type: 'custom',
-    position: { x: 400, y: 2450 },
+    position: { x: 400, y: 3600 },
     data: {
       label: 'Pagamento da Taxa de Matrícula',
       type: 'process',
@@ -339,7 +339,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '33',
     type: 'custom',
-    position: { x: 400, y: 2550 },
+    position: { x: 400, y: 3750 },
     data: {
       label: 'Pagamento Confirmado?',
       type: 'gateway',
@@ -349,7 +349,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '34',
     type: 'custom',
-    position: { x: 650, y: 2550 },
+    position: { x: 700, y: 3750 },
     data: {
       label: 'Lembrar Pagamento',
       type: 'process',
@@ -359,7 +359,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '35',
     type: 'custom',
-    position: { x: 650, y: 2650 },
+    position: { x: 700, y: 3900 },
     data: {
       label: 'Aguardar Confirmação',
       type: 'process',
@@ -369,7 +369,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '36',
     type: 'custom',
-    position: { x: 400, y: 2700 },
+    position: { x: 400, y: 4000 },
     data: {
       label: 'Atribuição Automática de Turma',
       type: 'process',
@@ -380,7 +380,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '37',
     type: 'custom',
-    position: { x: 400, y: 2800 },
+    position: { x: 400, y: 4150 },
     data: {
       label: 'Seleção de Disciplinas no Sistema Acadêmico',
       type: 'process',
@@ -391,7 +391,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '38',
     type: 'custom',
-    position: { x: 400, y: 2900 },
+    position: { x: 400, y: 4300 },
     data: {
       label: 'Confirmação de Horário',
       type: 'process',
@@ -401,7 +401,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '39',
     type: 'custom',
-    position: { x: 400, y: 3000 },
+    position: { x: 400, y: 4450 },
     data: {
       label: 'Conflito de Horário?',
       type: 'gateway',
@@ -411,7 +411,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '40',
     type: 'custom',
-    position: { x: 650, y: 3000 },
+    position: { x: 700, y: 4450 },
     data: {
       label: 'Ajustar Seleção de Disciplinas',
       type: 'process',
@@ -421,7 +421,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '41',
     type: 'custom',
-    position: { x: 400, y: 3150 },
+    position: { x: 400, y: 4700 },
     data: {
       label: 'Gerar Comprovante Definitivo de Matrícula',
       type: 'process',
@@ -432,7 +432,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '42',
     type: 'custom',
-    position: { x: 400, y: 3250 },
+    position: { x: 400, y: 4850 },
     data: {
       label: 'Ativação de Acesso aos Sistemas',
       type: 'process',
@@ -443,7 +443,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '43',
     type: 'custom',
-    position: { x: 400, y: 3350 },
+    position: { x: 400, y: 5000 },
     data: {
       label: 'Integração com Biblioteca',
       type: 'process',
@@ -454,7 +454,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '44',
     type: 'custom',
-    position: { x: 400, y: 3450 },
+    position: { x: 400, y: 5150 },
     data: {
       label: 'É Caloiro?',
       type: 'gateway',
@@ -464,7 +464,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '45',
     type: 'custom',
-    position: { x: 200, y: 3550 },
+    position: { x: 150, y: 5350 },
     data: {
       label: 'Incluir em Programa de Receção a Caloiros',
       type: 'process',
@@ -475,7 +475,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '46',
     type: 'custom',
-    position: { x: 600, y: 3550 },
+    position: { x: 650, y: 5350 },
     data: {
       label: 'Atualizar Dados do Estudante',
       type: 'process',
@@ -485,7 +485,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '47',
     type: 'custom',
-    position: { x: 400, y: 3700 },
+    position: { x: 400, y: 5550 },
     data: {
       label: 'Entrega de Cartão de Estudante',
       type: 'process',
@@ -496,7 +496,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '48',
     type: 'custom',
-    position: { x: 400, y: 3800 },
+    position: { x: 400, y: 5700 },
     data: {
       label: 'Orientações Acadêmicas Finais',
       type: 'process',
@@ -507,7 +507,7 @@ export const task4Nodes: FlowNode[] = [
   {
     id: '49',
     type: 'custom',
-    position: { x: 400, y: 3900 },
+    position: { x: 400, y: 5850 },
     data: {
       label: 'Fim',
       type: 'end',
