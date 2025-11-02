@@ -24,11 +24,26 @@ export const tasks = pgTable("tasks", {
   deadline: text("deadline").notNull(),
   route: text("route").notNull(),
   difficulty: text("difficulty").notNull(),
+  order: integer("order").notNull().default(0),
 });
 
 export const insertTaskSchema = createInsertSchema(tasks).omit({
   id: true,
+  order: true,
 });
 
+export const updateTaskSchema = z.object({
+  title: z.string().min(1).optional(),
+  description: z.string().min(1).optional(),
+  deadline: z.string().min(1).optional(),
+  route: z.string().min(1).optional(),
+  difficulty: z.enum(["Básico", "Intermediário", "Avançado"]).optional(),
+  order: z.number().int().optional(),
+}).refine(
+  (data) => Object.keys(data).length > 0,
+  { message: "Pelo menos um campo deve ser fornecido para atualização" }
+);
+
 export type InsertTask = z.infer<typeof insertTaskSchema>;
+export type UpdateTask = z.infer<typeof updateTaskSchema>;
 export type Task = typeof tasks.$inferSelect;

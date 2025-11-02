@@ -1,17 +1,172 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { Book, Calendar, Award, Workflow } from "lucide-react";
+import { Book, Calendar, Award, Workflow, GripVertical } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { EditTaskDialog } from "@/components/EditTaskDialog";
 import type { Task } from "@shared/schema";
 import backgroundImage from "@assets/stock_images/modern_tech_workspac_de275496.jpg";
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  rectSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { useState, useEffect } from "react";
+
+interface SortableTaskCardProps {
+  task: Task;
+  getDifficultyColor: (difficulty: string) => string;
+  formatDate: (dateString: string) => string;
+}
+
+function SortableTaskCard({ task, getDifficultyColor, formatDate }: SortableTaskCardProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: task.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes}>
+      <Card
+        className="hover-elevate transition-all duration-300 backdrop-blur-sm bg-card/80 border-card-border/50 overflow-visible group"
+        data-testid={`card-task-${task.id}`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <CardHeader className="relative">
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <div className="flex items-center gap-2">
+              <button
+                {...listeners}
+                className="cursor-grab active:cursor-grabbing p-1 hover-elevate rounded"
+                data-testid={`button-drag-${task.id}`}
+              >
+                <GripVertical className="w-4 h-4 text-muted-foreground" />
+              </button>
+              <div className="p-2 rounded-md bg-primary/10">
+                <Book className="w-5 h-5 text-primary" />
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Badge
+                className={getDifficultyColor(task.difficulty)}
+                data-testid={`badge-difficulty-${task.id}`}
+              >
+                {task.difficulty}
+              </Badge>
+              <EditTaskDialog task={task} />
+            </div>
+          </div>
+          <CardTitle data-testid={`text-title-${task.id}`}>
+            {task.title}
+          </CardTitle>
+          <CardDescription data-testid={`text-description-${task.id}`}>
+            {task.description}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4 relative">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Calendar className="w-4 h-4" />
+            <span data-testid={`text-deadline-${task.id}`}>
+              Prazo: {formatDate(task.deadline)}
+            </span>
+          </div>
+          <Link href={task.route}>
+            <Button
+              className="w-full"
+              data-testid={`button-view-task-${task.id}`}
+            >
+              Ver Tarefa
+            </Button>
+          </Link>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
 
 export default function LandingPage() {
   const { data: tasks, isLoading } = useQuery<Task[]>({
     queryKey: ["/api/tasks"],
   });
+  const [localTasks, setLocalTasks] = useState<Task[]>([]);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (tasks) {
+      setLocalTasks(tasks);
+    }
+  }, [tasks]);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const reorderMutation = useMutation({
+    mutationFn: async (taskIds: number[]) => {
+      return await apiRequest("POST", "/api/tasks/reorder", { taskIds });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/tasks"] });
+      toast({
+        title: "Sucesso",
+        description: "Ordem das tarefas atualizada!",
+      });
+    },
+    onError: () => {
+      if (tasks) {
+        setLocalTasks(tasks);
+      }
+      toast({
+        title: "Erro",
+        description: "Erro ao reordenar tarefas. Tente novamente.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      const oldIndex = localTasks.findIndex((task) => task.id === active.id);
+      const newIndex = localTasks.findIndex((task) => task.id === over.id);
+
+      const newTasks = arrayMove(localTasks, oldIndex, newIndex);
+      setLocalTasks(newTasks);
+      
+      const taskIds = newTasks.map((task) => task.id);
+      reorderMutation.mutate(taskIds);
+    }
+  };
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -107,52 +262,27 @@ export default function LandingPage() {
             ))}
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {tasks?.map((task) => (
-              <Card
-                key={task.id}
-                className="hover-elevate transition-all duration-300 backdrop-blur-sm bg-card/80 border-card-border/50 overflow-hidden group"
-                data-testid={`card-task-${task.id}`}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <CardHeader className="relative">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <div className="p-2 rounded-md bg-primary/10">
-                      <Book className="w-5 h-5 text-primary" />
-                    </div>
-                    <Badge
-                      className={getDifficultyColor(task.difficulty)}
-                      data-testid={`badge-difficulty-${task.id}`}
-                    >
-                      {task.difficulty}
-                    </Badge>
-                  </div>
-                  <CardTitle data-testid={`text-title-${task.id}`}>
-                    {task.title}
-                  </CardTitle>
-                  <CardDescription data-testid={`text-description-${task.id}`}>
-                    {task.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 relative">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span data-testid={`text-deadline-${task.id}`}>
-                      Prazo: {formatDate(task.deadline)}
-                    </span>
-                  </div>
-                  <Link href={task.route}>
-                    <Button
-                      className="w-full"
-                      data-testid={`button-view-task-${task.id}`}
-                    >
-                      Ver Tarefa
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={localTasks.map((task) => task.id)}
+              strategy={rectSortingStrategy}
+            >
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {localTasks.map((task) => (
+                  <SortableTaskCard
+                    key={task.id}
+                    task={task}
+                    getDifficultyColor={getDifficultyColor}
+                    formatDate={formatDate}
+                  />
+                ))}
+              </div>
+            </SortableContext>
+          </DndContext>
         )}
 
           <div className="mt-12 p-8 rounded-lg bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20 backdrop-blur-sm relative overflow-hidden">
