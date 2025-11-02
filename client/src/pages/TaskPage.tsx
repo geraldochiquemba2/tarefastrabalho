@@ -63,29 +63,6 @@ export default function TaskPage() {
       </div>
 
       <div className="flex flex-1 overflow-hidden">
-        <div className="w-64 border-r border-border bg-sidebar p-4 overflow-y-auto">
-          <FlowchartLegend />
-
-          <div className="mt-6 p-4 rounded-md bg-primary/5 border border-primary/20">
-            <h4 className="text-sm font-medium mb-2">Sobre o Fluxo</h4>
-            <p className="text-xs text-muted-foreground">
-              Este fluxograma representa o processo completo de cadastro no sistema
-              bibliotecário, incluindo validação, etiquetagem e sincronização.
-            </p>
-          </div>
-
-          <div className="mt-4 p-4 rounded-md bg-card border border-card-border">
-            <h4 className="text-sm font-medium mb-2">Prazo de Entrega</h4>
-            <p className="text-xs text-muted-foreground">
-              {new Date(task.deadline).toLocaleDateString("pt-BR", {
-                day: "2-digit",
-                month: "long",
-                year: "numeric",
-              })}
-            </p>
-          </div>
-        </div>
-
         <div className="flex-1">
           <FlowchartCanvas taskId={taskId} />
         </div>
