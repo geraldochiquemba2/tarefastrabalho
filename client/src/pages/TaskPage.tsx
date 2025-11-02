@@ -87,7 +87,7 @@ export default function TaskPage() {
         </div>
 
         <div className="flex-1">
-          <FlowchartCanvas />
+          <FlowchartCanvas taskId={taskId} />
         </div>
       </div>
     </div>

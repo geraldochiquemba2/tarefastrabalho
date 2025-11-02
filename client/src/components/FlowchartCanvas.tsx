@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect, useMemo } from 'react';
 import ReactFlow, {
   MiniMap,
   Controls,
@@ -13,16 +13,26 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
 import CustomFlowNode from './CustomFlowNode';
 import NodeDetailPanel from './NodeDetailPanel';
-import { flowchartNodes, flowchartEdges, FlowNode } from '@/lib/flowchartData';
+import { FlowNode } from '@/lib/flowchartData';
+import { getFlowchartData } from '@/lib/flowcharts';
 
-const nodeTypes = {
-  custom: CustomFlowNode,
-};
+interface FlowchartCanvasProps {
+  taskId?: number;
+}
 
-export default function FlowchartCanvas() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(flowchartNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(flowchartEdges);
+export default function FlowchartCanvas({ taskId = 1 }: FlowchartCanvasProps) {
+  const nodeTypes = useMemo(() => ({ custom: CustomFlowNode }), []);
+  const flowchartData = getFlowchartData(taskId);
+  const [nodes, setNodes, onNodesChange] = useNodesState(flowchartData.nodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(flowchartData.edges);
   const [selectedNode, setSelectedNode] = useState<FlowNode | null>(null);
+
+  useEffect(() => {
+    const data = getFlowchartData(taskId);
+    setNodes(data.nodes);
+    setEdges(data.edges);
+    setSelectedNode(null);
+  }, [taskId, setNodes, setEdges]);
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),

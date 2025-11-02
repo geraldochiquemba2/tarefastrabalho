@@ -47,6 +47,14 @@ export class MemStorage implements IStorage {
         deadline: "2025-11-25",
         route: "/tarefa/3",
         difficulty: "Avançado"
+      },
+      {
+        id: 4,
+        title: "Processo de Matrícula do ISPTEC",
+        description: "Modelar o processo completo de matrícula no ISPTEC, desde a divulgação até a entrega do cartão de estudante, incluindo exames de acesso e validações.",
+        deadline: "2025-12-01",
+        route: "/tarefa/4",
+        difficulty: "Avançado"
       }
     ];
 
