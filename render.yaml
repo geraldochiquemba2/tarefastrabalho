@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: flowchart-tasks-app
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RENDER_EXTERNAL_URL
+        sync: false
+    healthCheckPath: /ping
