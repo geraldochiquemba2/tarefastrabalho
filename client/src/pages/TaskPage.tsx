@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import FlowchartCanvas from "@/components/FlowchartCanvas";
 import FlowchartLegend from "@/components/FlowchartLegend";
 import type { Task } from "@shared/schema";
+import flowchartBackground from "@assets/stock_images/abstract_geometric_p_dffc8168.jpg";
 
 export default function TaskPage() {
   const [, params] = useRoute("/tarefa/:id");
@@ -62,8 +63,17 @@ export default function TaskPage() {
         </div>
       </div>
 
-      <div className="flex flex-1 overflow-hidden">
-        <div className="flex-1">
+      <div className="flex flex-1 overflow-hidden relative">
+        {/* Subtle Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+            style={{ backgroundImage: `url(${flowchartBackground})` }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/90 to-background/85"></div>
+        </div>
+        
+        <div className="flex-1 relative z-10">
           <FlowchartCanvas taskId={taskId} />
         </div>
       </div>
