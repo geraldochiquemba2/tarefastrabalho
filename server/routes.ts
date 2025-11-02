@@ -5,6 +5,14 @@ import { updateTaskSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  app.get("/ping", (_req, res) => {
+    res.status(200).json({ 
+      status: "alive", 
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime()
+    });
+  });
+
   app.get("/api/tasks", async (_req, res) => {
     try {
       const tasks = await storage.getTasks();
