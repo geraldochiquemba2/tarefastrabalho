@@ -63,7 +63,6 @@ export function EditTaskDialog({ task }: EditTaskDialogProps) {
           variant="outline" 
           size="icon"
           data-testid={`button-edit-${task.id}`}
-          onClick={(e) => e.preventDefault()}
         >
           <Edit className="w-4 h-4" />
         </Button>
